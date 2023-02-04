@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void sortScores(int scores[], int size);
-void printScores(int scores[], int size);
+void printScores(int scores[], int size); //配列の要素を出力する関数
 
 void sortScores(int scores[], int size){
     int number = 0; //配列の場所を記憶しておく
@@ -17,9 +17,9 @@ void sortScores(int scores[], int size){
                 max = scores[i + number];
                 index = i + number;
             }
-            if(scores[i] > 100){
-                printf("100点を超える要素が存在します。\n");
-                printf("配列の%d番目の値が %d >100です。\n", i+1, scores[i]);
+            if(scores[i] < 0 || 100 < scores[i]){
+                printf("WARNING:適切ではない要素が存在します。\n");
+                printf("配列の%d番目の値が %d です。\n", i+1, scores[i]);
                 number = size - 1;
                 break;
             }
@@ -33,7 +33,7 @@ void sortScores(int scores[], int size){
     
 }
 
-void printScores(int scores[], int size){ //配列の要素を出力する関数
+void printScores(int scores[], int size){
     printf("scores = ");
     for(int i=0; i < size; i++){
         printf("%d ", scores[i]);
@@ -42,8 +42,8 @@ void printScores(int scores[], int size){ //配列の要素を出力する関数
 }
 
 int main(){
-    const int SIZE = 5; //定数として配列のサイズを宣言                          
-    int scores[SIZE] = {0, 60, 70, 100, 90};
+    const int SIZE = 6; //定数として配列のサイズを宣言                          
+    int scores[SIZE] = {100, 60, 70, 1000, 90, 80};
     //処理コード
     
     printf("元の配列↓\n");
