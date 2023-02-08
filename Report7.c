@@ -5,8 +5,8 @@ void printScores(int scores[], int size); //配列の要素を出力する関数
 
 void sortScores(int scores[], int size){
     int number = 0; //配列の場所を記憶しておく
-    int max; //最大値を記憶しておく
-    int index; //最大値の場所を記憶しておく
+    int max ; //最大値を記憶しておく
+    int index ; //最大値の場所を記憶しておく
 
     while((size - 1) - number){ //最後の要素はただ一つ決まるため大小判別は要らない
         max = scores[number];
@@ -20,7 +20,7 @@ void sortScores(int scores[], int size){
             if(scores[i] < 0 || 100 < scores[i]){
                 printf("WARNING:適切ではない要素が存在します。\n");
                 printf("配列の%d番目の値が %d です。\n", i+1, scores[i]);
-                number = size - 1;
+                number = size - 2;
                 break;
             }
         }
